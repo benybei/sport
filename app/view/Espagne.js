@@ -1,21 +1,47 @@
 Ext.define('sport.view.Espagne',{
-	extend:'Ext.Panel',
+	extend:'Ext.navigation.View',
 	xtype:'espagne',
+	  requires:[
+	              'Ext.dataview.List',
+	              'Ext.data.proxy.JsonP',
+	              'Ext.data.Store',
+	              'Ext.data.reader.Json',
+	              'Ext.data.reader.Array',
+	              ],
 	config:{
 		title:'Football',
 		iconCls:'americain',
 		/*pour le css possition */
 		//cls:'home',
-		scrollable:true,
+		//scrollable:true,
 		styleHtmlContent:true,
 		
 		
-		 html: [
-                '<img src="http://staging.sencha.com/img/sencha.png" />',
-                '<h1>Welcome to Sencha Touch</h1>',
-                "<p>You're creating the Getting Started app. This demonstrates how ",
-                "to use tabs, lists and forms to create a simple app</p>",
-                '<h2>Sencha Touch (2.0.0)</h2>'
-            ].join("")
+        items: [
+                {
+                	xtype:'list',
+                	itemTpl:'{name}',
+                	title:'Recent Post',
+                	 store: {                       
+                		 autoLoad:true,
+
+                         fields: ['name'],
+                        
+                         proxy: {
+                             type: 'jsonp',
+                             url: 'http://api.espn.com/v1/sports/soccer/fra.1/teams/news/?apikey=jcsjfv8gj7mf34hnm6qzxt72',
+                             reader: {
+                            	 type: 'json',
+                            	  // record: 'leagues',
+                            	    //rootProperty: 'users'
+                            	 
+                            	// rootProperty:Ext.encode('sports')+'.'+'leagues',
+                                //callbackKey: 'callback',
+                            	 //rootProperty:'sports[0].leagues',
+                             }
+                         }
+                     }
+                }
+                ]
 	}
 })
