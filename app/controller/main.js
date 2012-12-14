@@ -5,6 +5,9 @@ Ext.define('sport.controller.main', {
             'france.liga',
             'allemagne.bull',
             'Help',
+            'Espagne'
+            
+            
             
              
         ],
@@ -12,11 +15,15 @@ Ext.define('sport.controller.main', {
         refs: {
         	france:'france',
         	allemagne:'allemagne',
+        	espagne:'espagne',
         	help:'help',
         },
         control: {
             'france list':{
             	itemtap:'showpost'
+            },
+            'espagne list':{
+            	itemtap:'showpostesp'
             },
             'allemagne list':{
             	itemtap:'basketlist'
@@ -30,37 +37,72 @@ Ext.define('sport.controller.main', {
     
 showpost:function(list, index, element, record){
 	/*fait reference a la liste du fichier blog la partie record du fichier json*/
-	if (record.get('id') === '1'){
-	this.getFrance().push({	
 	
-		xtype:'ligue',		
-		
-}) };
-if (record.get('id') === '3'){
-	this.getFrance().push({	
-	
-		xtype:'ligafr',		
-		
-})}
-if (record.get('id') === '2'){
-	this.getFrance().push({	
-	
-		xtype:'ligue',		
-		
-})};
-if (record.get('id') === '4'){
-	this.getFrance().push({	
-	
-		xtype:'ligafr',		
-		
-})};
-if (record.get('id') === '5'){
-	this.getFrance().push({	
-	
-		xtype:'bull',		
-		
-})}
+		this.getFrance().push({
+		 requires:[
+		           		'Ext.navigation.View',
+		              'Ext.data.proxy.JsonP',
+		              'Ext.data.Store'
+		              ],
+		          	title:'statistique de: '+record.get('location'),
+	     //  items: [ {
+		          	xtype:'list',
+	               	itemTpl:'{linkText}',
+	               
+	               
+	               	 store: {                       
+	               		 autoLoad:true,
+
+	                        fields: ['linkText'],
+	                       
+	                        proxy: {
+	                            type: 'jsonp',
+	                           url: "http://api.espn.com/v1/sports/soccer/fra.1/teams/"+record.get('id')+"/news/?apikey=jcsjfv8gj7mf34hnm6qzxt72",
+	                            reader: {
+	                           	 type: 'json',
+	                           	 /* sa marche amene la liste des equipe*/
+	                           	 rootProperty:'headlines',
+	                            }
+	                        }
+	                    }
+	               //}  ]
+	})
+
 	},
+	showpostesp:function(list, index, element, record){
+		/*fait reference a la liste du fichier blog la partie record du fichier json*/
+		
+			this.getEspagne().push({
+			 requires:[
+			           		'Ext.navigation.View',
+			              'Ext.data.proxy.JsonP',
+			              'Ext.data.Store'
+			              ],
+			          	title:'statistique de: '+record.get('location'),
+		     //  items: [ {
+			          	xtype:'list',
+		               	itemTpl:'{linkText}',
+		               
+		               
+		               	 store: {                       
+		               		 autoLoad:true,
+
+		                        fields: ['linkText'],
+		                       
+		                        proxy: {
+		                            type: 'jsonp',
+		                           url: "http://api.espn.com/v1/sports/football/nfl/teams/"+record.get('id')+"/news/?apikey=jcsjfv8gj7mf34hnm6qzxt72",
+		                            reader: {
+		                           	 type: 'json',
+		                           	 /* sa marche amene la liste des equipe*/
+		                           	 rootProperty:'headlines',
+		                            }
+		                        }
+		                    }
+		               //}  ]
+		})
+
+		},
     
     /*basket affiche les liste*/
    basketlist:function(list, index, element, record){

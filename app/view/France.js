@@ -12,25 +12,26 @@ Ext.define('sport.view.France', {
         /* pour la parti avec contacte*/
     	
        items: [
-                {
-                	xtype:'list',
-                	itemTpl:'{title}',
-                	title:'Choix du pays',
-                	fullscreen: true, 
-                	
-                	 store: {
-                	    	 /* pour la parti avec contacte*/
-                	    	               	       
-                	        data: [
-                	            {title: 'France Ligue 1: AS Saint-Etienne Olympique de Marseille Olympique lyonnais Paris SG..',id:'1'},
-                	            { title: 'Angletter Premier League: Manchester United Manchester City Chelsea Arsenal Liverpool', id:'2'},
-                	            { title: 'Espagne liga: FC Barcelone Real Madrid Atletico Madrid  Valence FCSeville', id:'3'},
-                	            { title: 'Allemagne Bundesliga: Bayern Munich Dortmund  Eintracht Francfort Schalke 04', id:'4'},
-                	            { title: 'Italie Calcio: Juventus Turin Inter Milan	AC Milan AS Rome Lazio Rom Fiorentina',id:'5' },
-                	        ]
-                	        
-                	    }
-                }
-                ]
+               {
+               	xtype:'list',
+               	itemTpl:'{location}',
+               	title:'Recent Post',
+               	 store: {                       
+               		 autoLoad:true,
+
+                        fields: ['location','id'],
+                       
+                        proxy: {
+                            type: 'jsonp',
+                            url: 'http://api.espn.com/v1/sports/soccer/fra.1/teams/news/?apikey=jcsjfv8gj7mf34hnm6qzxt72',
+                            reader: {
+                           	 type: 'json',
+                           	 /* sa marche amene la liste des equipe*/
+                           	 rootProperty:'sports[0].leagues[0].teams',
+                            }
+                        }
+                    }
+               }
+               ]
     }
 });

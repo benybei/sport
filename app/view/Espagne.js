@@ -29,7 +29,7 @@ Ext.define('sport.view.Espagne',{
                         
                          proxy: {
                              type: 'jsonp',
-                             url: 'http://api.espn.com/v1/sports/soccer/fra.1/teams/news/?apikey=jcsjfv8gj7mf34hnm6qzxt72',
+                             url: 'http://api.espn.com/v1/sports/football/nfl/teams/news/?apikey=jcsjfv8gj7mf34hnm6qzxt72',
                              reader: {
                             	 type: 'json',
                             	 /* sa marche amene la liste des equipe*/
