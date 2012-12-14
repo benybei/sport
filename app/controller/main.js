@@ -37,10 +37,21 @@ Ext.define('sport.controller.main', {
     
 showpost:function(list, index, element, record){
 	/*fait reference a la liste du fichier blog la partie record du fichier json*/
-	
+	/*if (record.get('location')===undefined){
 		this.getFrance().push({
+			xtype:'panel',
+	 	title:record.get('linkText'),
+	 	
+		})
+	}*/
+	if (record.get('location')!==undefined){	
+		
+	
+	this.getFrance().push({
+		
+		
 		 requires:[
-		           		'Ext.navigation.View',
+		           		//'Ext.navigation.View',
 		              'Ext.data.proxy.JsonP',
 		              'Ext.data.Store'
 		              ],
@@ -53,7 +64,7 @@ showpost:function(list, index, element, record){
 	               	 store: {                       
 	               		 autoLoad:true,
 
-	                        fields: ['linkText'],
+	                        fields: ['linkText','images'],
 	                       
 	                        proxy: {
 	                            type: 'jsonp',
@@ -67,11 +78,18 @@ showpost:function(list, index, element, record){
 	                    }
 	               //}  ]
 	})
-
+}
 	},
 	showpostesp:function(list, index, element, record){
 		/*fait reference a la liste du fichier blog la partie record du fichier json*/
-		
+		/*if (record.get('location')===undefined){
+		this.getEspagne().push({
+			xtype:'panel',
+	 	title:record.get('linkText'),
+	 	
+		})
+	}*/
+		if (record.get('location')!==undefined){
 			this.getEspagne().push({
 			 requires:[
 			           		'Ext.navigation.View',
@@ -101,7 +119,7 @@ showpost:function(list, index, element, record){
 		                    }
 		               //}  ]
 		})
-
+	}
 		},
     
     /*basket affiche les liste*/
