@@ -37,13 +37,16 @@ Ext.define('sport.controller.main', {
     
 showpost:function(list, index, element, record){
 	/*fait reference a la liste du fichier blog la partie record du fichier json*/
-	/*if (record.get('location')===undefined){
+	if (record.get('location')===undefined){
+		if ((record.get('images')[0])!==undefined){	
 		this.getFrance().push({
 			xtype:'panel',
-	 	title:record.get('linkText'),
+	 	html:'<img src="'+record.get('images')[0].url+'"alt="'+record.get('images')[0].alt+'">',
+	 	//html:
 	 	
 		})
-	}*/
+	}
+	}
 	if (record.get('location')!==undefined){	
 		
 	
@@ -58,7 +61,7 @@ showpost:function(list, index, element, record){
 		          	title:'statistique de: '+record.get('location'),
 	     //  items: [ {
 		          	xtype:'list',
-	               	itemTpl:'{linkText}',
+	               	itemTpl:'{linkText},{images[0].alt}',
 	               
 	               
 	               	 store: {                       
@@ -82,13 +85,16 @@ showpost:function(list, index, element, record){
 	},
 	showpostesp:function(list, index, element, record){
 		/*fait reference a la liste du fichier blog la partie record du fichier json*/
-		/*if (record.get('location')===undefined){
-		this.getEspagne().push({
-			xtype:'panel',
-	 	title:record.get('linkText'),
-	 	
-		})
-	}*/
+		if (record.get('location')===undefined){
+			if ((record.get('images')[0])!==undefined){	
+				this.getEspagne().push({
+					xtype:'panel',
+			 	html:'<img src="'+record.get('images')[0].url+'"alt="'+record.get('images')[0].alt+'">',
+			 	//html:
+			 	
+				})
+			}
+			}
 		if (record.get('location')!==undefined){
 			this.getEspagne().push({
 			 requires:[
@@ -99,13 +105,13 @@ showpost:function(list, index, element, record){
 			          	title:'statistique de: '+record.get('location'),
 		     //  items: [ {
 			          	xtype:'list',
-		               	itemTpl:'{linkText}',
+		               	itemTpl:'{linkText},{images[0].alt}',
 		               
 		               
 		               	 store: {                       
 		               		 autoLoad:true,
 
-		                        fields: ['linkText'],
+		                        fields: ['linkText','images'],
 		                       
 		                        proxy: {
 		                            type: 'jsonp',
