@@ -123,7 +123,7 @@ showpost:function(list, index, element, record){
 		                            }
 		                        }
 		                    }
-		               //}  ]
+		               
 		})
 	}
 		},
