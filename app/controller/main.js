@@ -40,11 +40,12 @@ showpost:function(list, index, element, record){
 	if (record.get('location')===undefined){
 		if ((record.get('images')[0])!==undefined){	
 		this.getFrance().push({
+			scrollable:true,
 			xtype:'panel',
 			title:record.get('title'),
 			html:['<h1>'+record.get('description')+'</h1>',
-			      '<img src="'+record.get('images')[0].url+'"alt="'+record.get('images')[0].alt+'">' ].join(""),
-	 	
+			      '<img src="'+record.get('images')[0].url+'"alt="'+record.get('images')[0].alt+'"height="'+record.get('images')[0].height+'"width="'+record.get('images')[0].width+'">' ].join(""),
+			    
 	 	
 		})
 	}
@@ -90,11 +91,11 @@ showpost:function(list, index, element, record){
 		if (record.get('location')===undefined){
 			if ((record.get('images')[0])!==undefined){	
 				this.getEspagne().push({
+					scrollable:true,
 					xtype:'panel',
 					title:record.get('title'),
 					html:['<h1>'+record.get('description')+'</h1>',
-					      '<img src="'+record.get('images')[0].url+'"alt="'+record.get('images')[0].alt+'">' ].join(""),
-			 	
+					      '<img src="'+record.get('images')[0].url+'"alt="'+record.get('images')[0].alt+'"height="'+record.get('images')[0].height+'"width="'+record.get('images')[0].width+'">' ].join(""),
 				})
 			}
 			}
