@@ -41,8 +41,9 @@ showpost:function(list, index, element, record){
 		if ((record.get('images')[0])!==undefined){	
 		this.getFrance().push({
 			xtype:'panel',
-	 	html:'<img src="'+record.get('images')[0].url+'"alt="'+record.get('images')[0].alt+'">',
-	 	//html:
+			title:record.get('title'),
+			html:'<img src="'+record.get('images')[0].url+'"alt="'+record.get('images')[0].alt+'">',
+	 	
 	 	
 		})
 	}
@@ -67,7 +68,7 @@ showpost:function(list, index, element, record){
 	               	 store: {                       
 	               		 autoLoad:true,
 
-	                        fields: ['linkText','images'],
+	                        fields: ['linkText','images','title'],
 	                       
 	                        proxy: {
 	                            type: 'jsonp',
@@ -89,7 +90,8 @@ showpost:function(list, index, element, record){
 			if ((record.get('images')[0])!==undefined){	
 				this.getEspagne().push({
 					xtype:'panel',
-			 	html:'<img src="'+record.get('images')[0].url+'"alt="'+record.get('images')[0].alt+'">',
+					title:record.get('title'),
+					html:'<img src="'+record.get('images')[0].url+'"alt="'+record.get('images')[0].alt+'">',
 			 	//html:
 			 	
 				})
@@ -111,7 +113,7 @@ showpost:function(list, index, element, record){
 		               	 store: {                       
 		               		 autoLoad:true,
 
-		                        fields: ['linkText','images'],
+		                        fields: ['linkText','images','title'],
 		                       
 		                        proxy: {
 		                            type: 'jsonp',
