@@ -14,14 +14,14 @@ Ext.define('sport.view.Espagne',{
 		/*pour le css possition */
 		//cls:'home',
 		//scrollable:true,
-		styleHtmlContent:true,
+		//styleHtmlContent:true,
 		
 		
         items: [
                 {
                 	xtype:'list',
                 	itemTpl:'{location}',
-                	title:'Recent Post',
+                	title:'Football',
                 	 store: {                       
                 		 autoLoad:true,
 

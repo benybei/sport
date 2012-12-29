@@ -15,7 +15,7 @@ Ext.define('sport.view.France', {
                {
                	xtype:'list',
                	itemTpl:'{location}',
-               	title:'Recent Post',
+               	title:'Soccer',
                	 store: {                       
                		 autoLoad:true,
 
