@@ -42,7 +42,8 @@ showpost:function(list, index, element, record){
 		this.getFrance().push({
 			xtype:'panel',
 			title:record.get('title'),
-			html:'<img src="'+record.get('images')[0].url+'"alt="'+record.get('images')[0].alt+'">',
+			html:['<h1>'+record.get('description')+'</h1>',
+			      '<img src="'+record.get('images')[0].url+'"alt="'+record.get('images')[0].alt+'">' ].join(""),
 	 	
 	 	
 		})
@@ -68,7 +69,7 @@ showpost:function(list, index, element, record){
 	               	 store: {                       
 	               		 autoLoad:true,
 
-	                        fields: ['linkText','images','title'],
+	                        fields: ['linkText','images','title','description'],
 	                       
 	                        proxy: {
 	                            type: 'jsonp',
