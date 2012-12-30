@@ -36,11 +36,11 @@ Ext.define('sport.controller.main', {
     },
     
 showpost:function(list, index, element, record){
-	/*fait reference a la liste du fichier blog la partie record du fichier json*/
+	/*fait reference a la liste du fichier soccer(france)*/
 	if (record.get('location')===undefined){
 		if ((record.get('images')[0])!==undefined){	
 		this.getFrance().push({
-			scrollable:true,
+			scrollable:true,			 
 			xtype:'panel',
 			title:record.get('title'),
 			html:['<h1>'+record.get('description')+'</h1>',
@@ -50,19 +50,16 @@ showpost:function(list, index, element, record){
 		})
 	}
 	}
-	if (record.get('location')!==undefined){	
-		
 	
-	this.getFrance().push({
-		
+	if (record.get('location')!==undefined){				
+	this.getFrance().push({		
 		
 		 requires:[
-		           		//'Ext.navigation.View',
+		           		
 		              'Ext.data.proxy.JsonP',
 		              'Ext.data.Store'
 		              ],
-		          	title:record.get('location'),
-	     //  items: [ {
+		          	title:record.get('location'),	    
 		          	xtype:'list',
 	               	itemTpl:'{linkText},{images[0].alt}',
 	               
@@ -87,7 +84,7 @@ showpost:function(list, index, element, record){
 }
 	},
 	showpostesp:function(list, index, element, record){
-		/*fait reference a la liste du fichier blog la partie record du fichier json*/
+		/*fait reference a la liste du fichier football(espagne)*/
 		if (record.get('location')===undefined){
 			if ((record.get('images')[0])!==undefined){	
 				this.getEspagne().push({
@@ -106,11 +103,9 @@ showpost:function(list, index, element, record){
 			              'Ext.data.proxy.JsonP',
 			              'Ext.data.Store'
 			              ],
-			          	title:record.get('location'),
-		     //  items: [ {
+			          	title:record.get('location'),		     
 			          	xtype:'list',
-		               	itemTpl:'{linkText},{images[0].alt}',
-		               
+		               	itemTpl:'{linkText},{images[0].alt}',              
 		               
 		               	 store: {                       
 		               		 autoLoad:true,
@@ -134,8 +129,7 @@ showpost:function(list, index, element, record){
     
     /*basket affiche les liste*/
    basketlist:function(list, index, element, record){
-    	//fait reference a la liste du fichier blog la partie record du fichier json
-    	//if (record.get('id') === 3){
+    	//fait reference a la liste du fichier basket(allemangne) 
     	this.getAllemagne().push({	
     	
     		xtype:'bull',		
