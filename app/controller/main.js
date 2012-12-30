@@ -60,7 +60,7 @@ showpost:function(list, index, element, record){
 		              'Ext.data.proxy.JsonP',
 		              'Ext.data.Store'
 		              ],
-		          	title:'statistique de: '+record.get('location'),
+		          	title:record.get('location'),
 	     //  items: [ {
 		          	xtype:'list',
 	               	itemTpl:'{linkText},{images[0].alt}',
@@ -105,7 +105,7 @@ showpost:function(list, index, element, record){
 			              'Ext.data.proxy.JsonP',
 			              'Ext.data.Store'
 			              ],
-			          	title:'statistique de: '+record.get('location'),
+			          	title:record.get('location'),
 		     //  items: [ {
 			          	xtype:'list',
 		               	itemTpl:'{linkText},{images[0].alt}',
