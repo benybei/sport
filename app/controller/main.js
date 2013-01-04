@@ -34,7 +34,24 @@ Ext.define('sport.controller.main', {
         }
         
     },
-    
+    init: function() {
+    	var geo = Ext.create('Ext.util.Geolocation', {
+        autoUpdate: false,
+        listeners: {
+            locationupdate: function(geo) {
+                alert('New latitude: ' + geo.getLatitude() + 'New longitude: ' + geo.getLongitude());
+            },
+            locationerror: function(geo, bTimeout, bPermissionDenied, bLocationUnavailable, message) {
+                if(bTimeout){
+                    alert('Timeout occurred.');
+                } else {
+                    alert('Error occurred.');
+                }
+            }
+        }
+    });
+    geo.updateLocation();
+    },  
 showpost:function(list, index, element, record){
 	/*fait reference a la liste du fichier soccer(france)*/
 	if (record.get('location')===undefined){
