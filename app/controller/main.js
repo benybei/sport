@@ -35,11 +35,12 @@ Ext.define('sport.controller.main', {
         
     },
     init: function() {
+    	/*recuperation de geolocalite http://maps.googleapis.com/maps/api/geocode/json?latlng=45.495738599999996,-73.6558981&sensor=false */
     	var geo = Ext.create('Ext.util.Geolocation', {
         autoUpdate: false,
         listeners: {
             locationupdate: function(geo) {
-                alert('New latitude: ' + geo.getLatitude() + 'New longitude: ' + geo.getLongitude());
+            	console.log('New latitude: ' + geo.getLatitude() + 'New longitude: ' + geo.getLongitude());
             },
             locationerror: function(geo, bTimeout, bPermissionDenied, bLocationUnavailable, message) {
                 if(bTimeout){
