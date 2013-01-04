@@ -41,6 +41,42 @@ Ext.define('sport.controller.main', {
         listeners: {
             locationupdate: function(geo) {
             	console.log('New latitude: ' + geo.getLatitude() + 'New longitude: ' + geo.getLongitude());
+            	
+            	
+            	
+        		/*
+        		
+       		 requires:[
+       		           		
+       		              'Ext.data.proxy.JsonP',
+       		              'Ext.data.Store'
+       		              ],
+       		          //	title:record.get('location'),	    
+       		          //	xtype:'list',
+       	               //	itemTpl:'{linkText},{images[0].alt}',
+       	               
+       	               
+       	               	 store: {                       
+       	               		 autoLoad:true,
+
+       	                        fields: ['linkText','images','title','description'],
+       	                       
+       	                        proxy: {
+       	                            type: 'jsonp',
+       	                        url: "http://maps.googleapis.com/maps/api/geocode/json?latlng="geo.getLatitude(),geo.getLongitude()"&sensor=false",
+       	                          // url: "http://api.espn.com/v1/sports/soccer/fra.1/teams/"+record.get('id')+"/news/?apikey=jcsjfv8gj7mf34hnm6qzxt72",
+       	                            reader: {
+       	                           	 type: 'json',
+       	                           	 // sa marche amene la liste des equipe
+       	                           	 rootProperty:'results',
+       	                            }
+       	                        }
+       	                    }
+       	               //}  ]
+       	*/
+            	
+            	
+            	
             },
             locationerror: function(geo, bTimeout, bPermissionDenied, bLocationUnavailable, message) {
                 if(bTimeout){
