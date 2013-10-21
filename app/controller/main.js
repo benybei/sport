@@ -42,9 +42,9 @@ Ext.define('sport.controller.main', {
             locationupdate: function(geo) {
             	console.log('New latitude: ' + geo.getLatitude() + 'New longitude: ' + geo.getLongitude());
             	
+            	/*
             	
-            	
-        		/*
+        		
         		
        		 requires:[
        		           		
@@ -55,11 +55,11 @@ Ext.define('sport.controller.main', {
        		          //	xtype:'list',
        	               //	itemTpl:'{linkText},{images[0].alt}',
        	               
-       	               
+       		          // console.log(  address_components[4].short_name),
        	               	 store: {                       
        	               		 autoLoad:true,
 
-       	                        fields: ['linkText','images','title','description'],
+       	                        fields: ['address_components'],
        	                       
        	                        proxy: {
        	                            type: 'jsonp',
@@ -73,8 +73,8 @@ Ext.define('sport.controller.main', {
        	                        }
        	                    }
        	               //}  ]
-       	*/
-            	
+       	
+            	*/
             	
             	
             },
